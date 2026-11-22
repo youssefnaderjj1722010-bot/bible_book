@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0e4438">
+  <title>الكتاب المقدس — العهد القديم والعهد الجديد</title>
+  <meta name="description" content="الكتاب المقدس كاملًا بترجمة سميث وفان دايك، للقراءة والبحث دون اتصال بالإنترنت.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e4438'/%3E%3Cpath d='M32 16c-5-3-11-3-15-1v32c4-2 10-2 15 1 5-3 11-3 15-1V15c-4-2-10-2-15 1z' fill='none' stroke='%23e7c98f' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M32 16v32' stroke='%23e7c98f' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="التنقل بين أسفار الكتاب المقدس">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 11c-4-2.6-8.6-2.6-12-.8v26c3.4-1.8 8-1.8 12 .8 4-2.6 8.6-2.6 12-.8v-26c-3.4-1.8-8-1.8-12 .8Z"/>
+            <path d="M24 11v26"/>
+            <path d="M16 18c2-.8 4-.8 5.5 0M16 24c2-.8 4-.8 5.5 0M26.5 18c1.5-.8 3.5-.8 5.5 0M26.5 24c1.5-.8 3.5-.8 5.5 0"/>
+          </svg>
+        </span>
+        <div class="brand-text">
+          <h1>الكتاب المقدس</h1>
+          <p>العهد القديم والعهد الجديد</p>
+        </div>
+      </div>
+
+      <form id="search-form" class="side-search" role="search">
+        <span class="search-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+        </span>
+        <input id="search-input" type="search" placeholder="ابحث عن كلمة أو مرجع..." autocomplete="off" spellcheck="false" aria-label="ابحث في الكتاب المقدس">
+        <kbd aria-hidden="true">/</kbd>
+      </form>
+
+      <div class="tabs" role="tablist" aria-label="أقسام الكتاب المقدس">
+        <button class="tab is-active" id="tab-ot" data-t="0" role="tab" aria-selected="true">العهد القديم <span>٣٩</span></button>
+        <button class="tab" id="tab-nt" data-t="1" role="tab" aria-selected="false">العهد الجديد <span>٢٧</span></button>
+      </div>
+
+      <nav class="side-books" id="side-books" aria-label="قائمة الأسفار"></nav>
+
+      <div class="side-foot">
+        <button class="about-link" id="about-btn" type="button">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8.2v.2"/></svg>
+          <span>حول التطبيق</span>
+        </button>
+        <span class="version">نسخة ١٫٠</span>
+      </div>
+    </aside>
+
+    <button class="scrim" id="scrim" type="button" aria-label="إغلاق القائمة" tabindex="-1"></button>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="فتح القائمة">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div class="topbar-title" id="topbar-title">الكتاب المقدس</div>
+        <div class="topbar-actions">
+          <div class="font-ctl" role="group" aria-label="حجم الخط">
+            <button id="font-dec" type="button" aria-label="تصغير حجم الخط" title="تصغير الخط">A−</button>
+            <button id="font-inc" type="button" aria-label="تكبير حجم الخط" title="تكبير الخط">A+</button>
+          </div>
+          <button class="icon-btn" id="theme-btn" type="button" aria-label="تبديل المظهر" title="تبديل المظهر"></button>
+          <button class="icon-btn" id="saved-btn" type="button" aria-label="الأصحاحات المحفوظة" title="المحفوظات">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 2.35 4.76 5.25.77-3.8 3.7.9 5.23L12 15.98 7.3 18.46l.9-5.23-3.8-3.7 5.25-.77L12 4Z"/></svg>
+          </button>
+          <button class="icon-btn search-mobile" id="search-mobile" type="button" aria-label="بحث">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+          </button>
+        </div>
+      </header>
+      <div class="view" id="view" tabindex="-1"></div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-scrim" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head">
+        <h2 id="modal-title">عنوان</h2>
+        <button class="icon-btn" type="button" data-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <div class="sr-only" id="live" aria-live="polite"></div>
+
+  <script src="data/meta.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
